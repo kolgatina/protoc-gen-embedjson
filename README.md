@@ -18,8 +18,13 @@ By default, such fields are serialized as nested objects.
 ## Installation
 
 ```sh
-cd protoc-gen-embedjson
-go build -o bin/protoc-gen-embedjson
+go install github.com/kolgatina/protoc-gen-embedjson@latest
+```
+
+After installation, make sure the binary is available in your `PATH`:
+
+```sh
+which protoc-gen-embedjson
 ```
 
 ---
@@ -30,8 +35,7 @@ go build -o bin/protoc-gen-embedjson
 protoc -I=. \
   -I=$GOPATH/src \
   -I=$GOPATH/src/github.com/alta/protopatch/patch \
-  --plugin=protoc-gen-embedjson=../../protoc-gen-embedjson/bin/protoc-gen-embedjson \
-  --embedjson_out=. ${1:-*.proto}
+  --embedjson_out=. *.proto
 ```
 
 ---
